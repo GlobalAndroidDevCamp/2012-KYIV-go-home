@@ -1,10 +1,13 @@
 ﻿package org.away.dao.impl;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.away.dao.Dao;
+import org.away.model.Line;
 import org.away.model.Station;
+import org.away.model.Transport;
 
 import com.google.inject.Singleton;
 
@@ -266,7 +269,9 @@ public class LocalDao implements Dao {
 				 {94, 93, 92, 91, 90, 89, 88, 87, 86, 85, 84, 83, 82, 81, 80, 79, 78, 77, 76, 75, 74, 73, 95, 96, 97, 98, 99, 71, 1780, 1699, 70, 1892, 1992, 69, 68, 67, 66, 100, 101, 102, 103, 61, 60, 59, 58, 57, 1890, 1053, 56, 55, 874, 875, 54, 53, 52, 51, 104, 105, 106, 107, 46, 1904, 1903, 1902, 45, 108, 109, 110, 41, 40, 1887, 39, 38, 111, 112, 113, 114, 36, 35, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 2021, 133, 1183, 134, 846, 6, 5, 1881, 4, 3, 2, 1, 0}};
 	}
 
-	private List<Station> routes;
+	private static List<Station> routes;
+	private static List<Transport> transports;
+	private static List<Line> lines;
 	
 	@Override
 	public List<Station> fetchRoutes() {
@@ -277,9 +282,35 @@ public class LocalDao implements Dao {
 				routes.add(tmp);
 			}
 		}
-		return routes;
+		return Collections.unmodifiableList(routes);
 	}
 
+	@Override
+	public List<Transport> fetchTransports() {
+		if (transports == null) {
+			transports = new ArrayList<Transport>();
+			for(int i=0; i < rname.length; i++){
+				Transport tmp = new Transport(i,rlines[i],rname[i]);
+				transports.add(tmp);
+			}
+		}
+		return Collections.unmodifiableList(transports);
+	}
+
+	@Override
+	public List<Line> fetchLines() {
+		if (lines == null) {
+			lines = new ArrayList<Line>();
+			for(int i=0; i < lrase.length; i++){
+				Line tmp = new Line(lrase[i], ldots[i]);
+				lines.add(tmp);
+			}
+		}
+		return Collections.unmodifiableList(lines);
+	}
+
+	
+	
 //	public static void main(String[] args) {
 //		List<Route> routes = new LocalDao().fetchRoutes();
 //		for (Route route : routes) {
