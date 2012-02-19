@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.away.dao.Dao;
+import org.away.model.Line;
 import org.away.model.Station;
 import org.away.model.Transport;
 
@@ -270,6 +271,7 @@ public class LocalDao implements Dao {
 
 	private static List<Station> routes;
 	private static List<Transport> transports;
+	private static List<Line> lines;
 	
 	@Override
 	public List<Station> fetchRoutes() {
@@ -293,6 +295,18 @@ public class LocalDao implements Dao {
 			}
 		}
 		return Collections.unmodifiableList(transports);
+	}
+
+	@Override
+	public List<Line> fetchLines() {
+		if (lines == null) {
+			lines = new ArrayList<Line>();
+			for(int i=0; i < lrase.length; i++){
+				Line tmp = new Line(lrase[i], ldots[i]);
+				lines.add(tmp);
+			}
+		}
+		return Collections.unmodifiableList(lines);
 	}
 
 	
