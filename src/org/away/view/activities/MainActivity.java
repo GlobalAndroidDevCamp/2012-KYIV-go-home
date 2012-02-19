@@ -3,12 +3,12 @@ package org.away.view.activities;
 import java.io.IOException;
 
 import org.away.R;
-import org.away.ai.SuperAI;
 import org.away.controller.GeoCodingService;
 import org.away.controller.GeoCodingService.GeoCoordinates;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,14 +35,9 @@ public class MainActivity extends RoboActivity {
 	@Inject
 	private GeoCodingService geoService;
 
-	@Inject
-	private SuperAI ai;
-
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
-		init();
 		initLayout();
 	}
 
@@ -60,17 +55,12 @@ public class MainActivity extends RoboActivity {
 		});
 	}
 
-	private void init() {
-		//geoService = new GeoCodingService(this);
-	}
-
 	private void searchButtonClicked() {
 
 		GeoCoordinates startCoordinates = null;
 		GeoCoordinates endCoordinates = null;
 
 		try {
-
 			startCoordinates = geoService
 					.getGeoCoordinatesByAddress(startAddressTextBox.getText()
 							.toString());
@@ -83,8 +73,27 @@ public class MainActivity extends RoboActivity {
 			Toast.makeText(getApplicationContext(), e.getMessage(),
 					Toast.LENGTH_SHORT).show();
 
-			return;
+			//return;
 		}
+
+		startSearchResultsActivity(this, startCoordinates, endCoordinates);
+
+	}
+
+	private void startSearchResultsActivity(MainActivity mainActivity,
+			GeoCoordinates startCoordinates, GeoCoordinates endCoordinates) {
+
+		Intent myIntent = new Intent(MainActivity.this,
+				SearchResultActivity.class);
+
+		Bundle bundle = new Bundle();
+		bundle.putSerializable(SearchResultActivity.GEO_START_BUNDLE_TAG,
+				startCoordinates);
+		bundle.putSerializable(SearchResultActivity.GEO_END_BUNDLE_TAG,
+				endCoordinates);
+
+		myIntent.putExtras(bundle);
+		this.startActivity(myIntent);
 	}
 
 }

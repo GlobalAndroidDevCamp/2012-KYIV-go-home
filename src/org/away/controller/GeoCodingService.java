@@ -1,6 +1,7 @@
 package org.away.controller;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Locale;
 
@@ -34,10 +35,15 @@ public class GeoCodingService {
 				0).getLongitude(), addresses.get(0).getLatitude());
 	}
 
-	public static class GeoCoordinates {
+	public static class GeoCoordinates implements Serializable {
+		
+		private static final long serialVersionUID = -188122163934343700L;
+		
+		private double longtitude;
+		private double lattitude;
 
-		private final double longtitude;
-		private final double lattitude;
+		public GeoCoordinates() {
+		}
 
 		public GeoCoordinates(double longtitude, double lattitude) {
 			super();
@@ -52,9 +58,10 @@ public class GeoCodingService {
 		public double getLattitude() {
 			return lattitude;
 		}
-		
+
 		public double getDistance(GeoCoordinates other) {
-			return Math.sqrt(Math.pow(longtitude-other.getLongtitude(), lattitude-other.getLattitude()));
+			return Math.sqrt(Math.pow(longtitude - other.getLongtitude(),
+					lattitude - other.getLattitude()));
 		}
 
 		@Override
