@@ -44,8 +44,9 @@ public class MainActivity extends RoboActivity {
 	private void initLayout() {
 		setContentView(R.layout.main_activity_layout);
 
-		startAddressTextBox.setText("160 Riverside Drive, New York, New York");
-
+		startAddressTextBox.setText("Медової Печери, 39");
+		endAddressTextBox.setText("Наукова, 7г");
+		
 		searchButton.setOnClickListener(new OnClickListener() {
 
 			@Override
@@ -62,10 +63,10 @@ public class MainActivity extends RoboActivity {
 
 		try {
 			startCoordinates = geoService
-					.getGeoCoordinatesByAddress(startAddressTextBox.getText()
+					.getGeoCoordinatesByAddress("Львів, "+startAddressTextBox.getText()
 							.toString());
 			endCoordinates = geoService
-					.getGeoCoordinatesByAddress(endAddressTextBox.getText()
+					.getGeoCoordinatesByAddress("Львів, "+endAddressTextBox.getText()
 							.toString());
 
 		} catch (IOException e) {
