@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:padding="5dp">
+    android:orientation="vertical"
+    android:padding="5dp" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -14,8 +14,11 @@
             android:id="@+id/startAddressTextBox"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:inputType="textPostalAddress" >
+
+            <requestFocus />
+        </EditText>
 
         <Button
             android:id="@+id/selectStartAddressButton"
@@ -33,10 +36,8 @@
             android:id="@+id/endAddressTextArea"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPostalAddress"
-            android:layout_weight="1" >
-
-            <requestFocus />
+            android:layout_weight="1"
+            android:inputType="textPostalAddress" >
         </EditText>
 
         <Button
@@ -49,36 +50,35 @@
     <LinearLayout
         android:id="@+id/linearLayout3"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        >
+        android:layout_height="wrap_content" >
 
         <ToggleButton
             android:id="@+id/tramsToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trams"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:text="Trams" />
 
         <ToggleButton
             android:id="@+id/trolleybusToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Trolleybuses" 
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="Trolleybuses" />
 
         <ToggleButton
             android:id="@+id/busToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buses" 
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:text="Buses" />
     </LinearLayout>
 
     <Button
         android:id="@+id/searchButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Search"
-        android:layout_gravity="right" />
+        android:layout_gravity="right"
+        android:text="Search" />
 
 </LinearLayout>
