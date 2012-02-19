@@ -1,4 +1,4 @@
-package org.away.ai;
+package org.away.controller;
 
 import java.util.List;
 

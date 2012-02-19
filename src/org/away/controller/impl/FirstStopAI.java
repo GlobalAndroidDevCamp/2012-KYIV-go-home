@@ -1,9 +1,9 @@
-package org.away.ai.impl;
+package org.away.controller.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import org.away.ai.SuperAI;
+import org.away.controller.SuperAI;
 import org.away.controller.GeoCodingService.GeoCoordinates;
 import org.away.model.Itinary;
 

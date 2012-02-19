@@ -1,7 +1,7 @@
 package org.away.configuration;
 
-import org.away.ai.SuperAI;
-import org.away.ai.impl.StupidAI;
+import org.away.controller.SuperAI;
+import org.away.controller.impl.StupidAI;
 import org.away.dao.Dao;
 import org.away.dao.impl.LocalDao;
 

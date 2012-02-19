@@ -51,6 +51,10 @@ public class GeoCodingService {
 		public double getLattitude() {
 			return lattitude;
 		}
+		
+		public double getDistance(GeoCoordinates other) {
+			return Math.sqrt(Math.pow(longtitude-other.getLongtitude(), lattitude-other.getLattitude()));
+		}
 
 		@Override
 		public String toString() {
