@@ -2,10 +2,8 @@ package org.away.view.components;
 
 import org.away.R;
 import org.away.model.Itinary;
-import org.away.model.Route;
+import org.away.model.Station;
 
-import roboguice.activity.RoboActivity;
-import roboguice.inject.InjectView;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.widget.LinearLayout;
@@ -13,34 +11,37 @@ import android.widget.TextView;
 
 public class ItineraryView extends LinearLayout {
 
-	@InjectView(R.id.numbersTextView)
 	private TextView numbersTextView;
 
-	@InjectView(R.id.timeTextView)
 	private TextView timeTextView;
 
-	@InjectView(R.id.priceTextView)
 	private TextView priceTextView;
 
 	public ItineraryView(Context context, Itinary itinerary) {
 		super(context);
 
-		((RoboActivity) context).getInjector().injectMembers(this);
 		LayoutInflater inflater = (LayoutInflater) context
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-
 		inflater.inflate(R.layout.itineraty_row_layout, this, true);
+
+		initLayout();
 
 		setItinerary(itinerary);
 	}
 
+	private void initLayout() {
+		numbersTextView = (TextView) findViewById(R.id.numbersTextView);
+		priceTextView = (TextView) findViewById(R.id.priceTextView);
+		timeTextView = (TextView) findViewById(R.id.timeTextView);
+	}
+
 	public void setItinerary(Itinary itinerary) {
 		StringBuilder routes = new StringBuilder();
-		for (Route route : itinerary.getRoutes()) {
-			routes.append(route.getRname()).append(" - ");
+		for (Station station : itinerary.getRoutes()) {
+			routes.append(station.getRname()).append(" - ");
 		}
 		routes.delete(routes.length() - 3, routes.length());
-		numbersTextView.setText(setValueWithDefault(routes,
+		numbersTextView.setText(setValueWithDefault(routes.toString(),
 				"Помилка в обчисленні маршруту"));
 
 		timeTextView.setText(setValueWithDefault(itinerary.getSeconds() / 60

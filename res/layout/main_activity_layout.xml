@@ -52,33 +52,61 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
-        <ToggleButton
+        <Button
             android:id="@+id/tramsToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Trams" />
+            android:text="Трамваї" />
 
-        <ToggleButton
+        <Button
             android:id="@+id/trolleybusToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Trolleybuses" />
+            android:text="Тролейбуси" />
 
-        <ToggleButton
+        <Button
             android:id="@+id/busToggleButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Buses" />
+            android:text="Автобуси" />
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Оптимальний"
+            android:checked="false" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Найшвидший"
+            android:checked="true" />
+
+        <RadioButton
+            android:id="@+id/radioButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Найдешевший"
+            android:checked="true" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/searchButton"
-        android:layout_width="wrap_content"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:text="Search" />
+        android:text="ПОШУК" />
 
 </LinearLayout>
