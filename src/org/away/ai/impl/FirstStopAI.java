@@ -1,5 +1,6 @@
 package org.away.ai.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.away.ai.SuperAI;
@@ -7,7 +8,26 @@ import org.away.controller.GeoCodingService.GeoCoordinates;
 import org.away.model.Itinary;
 
 public class FirstStopAI implements SuperAI {
+	
+//	private List<> findNearStops(GeoCoordinates point) {
+//		return findNearStops(point, 500);
+//	}
+//	
+//    private List<> findNearStops(GeoCoordinates _arg2, int _arg3):Array{
+//        List<Route> res = new ArrayList<Route>();
+//        var _local5:int;
+//        while (_local5 < _arg1.q.slat.length) {
+//            if (_arg2.distanceFrom(new LatLng(_arg1.q.slat[_local5], _arg1.q.slng[_local5])) < _arg3){
+//                _local4.push(_local5);
+//            };
+//            _local5++;
+//        };
+//        return (_local4);
+//    }
+
+	
     private List<Itinary> findDirects(GeoCoordinates start, GeoCoordinates end) {
+    	
 //        int sLineI;
 //        int numberOfSLines;
 //        int finishStopsArrayLength;

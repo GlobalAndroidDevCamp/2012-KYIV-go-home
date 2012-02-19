@@ -63,7 +63,7 @@ public class MainActivity extends RoboActivity {
 		} catch (IOException e) {
 			Log.e("aWay", e.getMessage());
 		}
-		Toast.makeText(getApplicationContext(), text.toString(),
+		Toast.makeText(getApplicationContext(), ""+text,
 				Toast.LENGTH_SHORT).show();
 	}
 
