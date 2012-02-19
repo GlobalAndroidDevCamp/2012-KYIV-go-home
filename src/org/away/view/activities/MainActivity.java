@@ -3,6 +3,7 @@ package org.away.view.activities;
 import java.io.IOException;
 
 import org.away.R;
+import org.away.ai.SuperAI;
 import org.away.controller.GeoCodingService;
 import org.away.controller.GeoCodingService.GeoCoordinates;
 
@@ -20,14 +21,22 @@ import com.google.inject.Inject;
 
 public class MainActivity extends RoboActivity {
 
-	// Views
+	// ====== Views
 	@InjectView(R.id.searchButton)
 	private Button searchButton;
+
 	@InjectView(R.id.startAddressTextBox)
 	private TextView startAddressTextBox;
 
+	@InjectView(R.id.endAddressTextArea)
+	private TextView endAddressTextBox;
+
+	// ====== Services
 	@Inject
 	private GeoCodingService geoService;
+
+	@Inject
+	private SuperAI ai;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -39,8 +48,8 @@ public class MainActivity extends RoboActivity {
 
 	private void initLayout() {
 		setContentView(R.layout.main_activity_layout);
-		
-		startAddressTextBox.setText("L'viv, L'vivs'ka oblast, Ukraine");
+
+		startAddressTextBox.setText("160 Riverside Drive, New York, New York");
 
 		searchButton.setOnClickListener(new OnClickListener() {
 
@@ -52,19 +61,36 @@ public class MainActivity extends RoboActivity {
 	}
 
 	private void init() {
-		geoService = new GeoCodingService(this);
+		//geoService = new GeoCodingService(this);
 	}
 
 	private void searchButtonClicked() {
-		GeoCoordinates text = null;
+
+		GeoCoordinates startCoordinates = null;
+		GeoCoordinates endCoordinates = null;
+
 		try {
-			text = geoService.getGeoCoordinatesByAddress(startAddressTextBox
-					.getText().toString());
+
+			startCoordinates = geoService
+					.getGeoCoordinatesByAddress(startAddressTextBox.getText()
+							.toString());
+			endCoordinates = geoService
+					.getGeoCoordinatesByAddress(endAddressTextBox.getText()
+							.toString());
+
 		} catch (IOException e) {
 			Log.e("aWay", e.getMessage());
+			Toast.makeText(getApplicationContext(), e.getMessage(),
+					Toast.LENGTH_SHORT).show();
+
+			return;
 		}
-		Toast.makeText(getApplicationContext(), text.toString(),
-				Toast.LENGTH_SHORT).show();
+
+		// String text = startCoordinates == null ? "Bad location name"
+		// : startCoordinates.toString();
+		// Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
+		// .show();
+
 	}
 
 }

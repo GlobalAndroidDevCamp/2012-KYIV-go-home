@@ -2,6 +2,7 @@ package org.away.controller;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Locale;
 
 import android.content.Context;
 import android.location.Address;
@@ -15,7 +16,7 @@ public class GeoCodingService {
 
 	@Inject
 	public GeoCodingService(Context context) {
-		this.geocodder = new Geocoder(context);
+		this.geocodder = new Geocoder(context, Locale.US);
 	}
 
 	public Address getAddressbyLocation(double lattitude, double longitude)
