@@ -2,7 +2,7 @@ package org.away.dao;
 
 import java.util.List;
 
-import org.away.model.Route;
+import org.away.model.Station;
 
 
 /**
@@ -12,6 +12,6 @@ import org.away.model.Route;
  */
 public interface Dao {
 	
-	List<Route> fetchRoutes();
+	List<Station> fetchRoutes();
 
 }
