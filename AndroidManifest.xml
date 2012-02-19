@@ -30,6 +30,9 @@
             android:name=".view.activities.SearchResultActivity"
             android:theme="@android:style/Theme.Light" >
         </activity>
+        <activity
+            android:name=".view.activities.ItineraryDetailsActivity"
+            android:theme="@android:style/Theme.Light" />
     </application>
 
 </manifest>

@@ -11,8 +11,12 @@ import org.away.model.ItineraryAdapter;
 
 import roboguice.activity.RoboActivity;
 import roboguice.inject.InjectView;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -68,7 +72,33 @@ public class SearchResultActivity extends RoboActivity {
 		setContentView(R.layout.search_result_activity_layout);
 		itineraryAdapter = new ItineraryAdapter(getApplicationContext(),
 				itineraries);
+
 		searchResultListView.setAdapter(itineraryAdapter);
+		searchResultListView.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View view,
+					int selectedindex, long arg3) {
+				Itinary itinerary = (Itinary) itineraryAdapter
+						.getItem(selectedindex);
+				startItineraryDetailsActivity(itinerary);
+			}
+
+		});
+		
+		
+	}
+
+	private void startItineraryDetailsActivity(Itinary itinerary) {
+		Intent myIntent = new Intent(SearchResultActivity.this,
+				ItineraryDetailsActivity.class);
+
+		Bundle bundle = new Bundle();
+		bundle.putSerializable(ItineraryDetailsActivity.ITINERARY_BUNDLE_TAG,
+				itinerary);
+
+		myIntent.putExtras(bundle);
+		this.startActivity(myIntent);
 	}
 
 }

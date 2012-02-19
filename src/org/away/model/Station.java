@@ -1,10 +1,11 @@
 package org.away.model;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 import org.away.controller.GeoCodingService.GeoCoordinates;
 
-public class Station {
+public class Station implements Serializable {
 
 	private double slat;
 	private double slng;
@@ -21,9 +22,13 @@ public class Station {
 	private int[] ldots;
 	private int[] lstops;
 
+	public Station() {
+		super();
+	}
+
 	public Station(double slat, double slng, String sname, int sdir,
-			int[] slines, int sdot, int[] snears)//, double plat, double plng,
-			//String rname, int[] rlines, int lrase, int[] ldots, int[] lstops) {
+			int[] slines, int sdot, int[] snears)// , double plat, double plng,
+	// String rname, int[] rlines, int lrase, int[] ldots, int[] lstops) {
 	{
 		super();
 		this.slat = slat;
@@ -108,10 +113,10 @@ public class Station {
 				+ ", ldots=" + Arrays.toString(ldots) + ", lstops="
 				+ Arrays.toString(lstops) + "]";
 	}
-	
 
 	public double getDistance(Station other) {
-		return Math.sqrt(Math.pow(slng-other.slng,2) + Math.pow(slat-other.slat,2));
+		return Math.sqrt(Math.pow(slng - other.slng, 2)
+				+ Math.pow(slat - other.slat, 2));
 	}
 
 }

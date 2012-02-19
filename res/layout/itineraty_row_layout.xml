@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingBottom="3dp"
-    android:paddingTop="2dp" >
+    android:paddingTop="2dp" 
+    android:id="@+id/itineraryShortDetails">
 
-    <TextView
-        android:id="@+id/numbersTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:text="Tрм-1 - Авт-45"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:textColor="#424242" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/transportImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bus" />
+
+        <TextView
+            android:id="@+id/numbersTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:text="Tрм-1 - Авт-45"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="#424242" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/timeTextView"
@@ -40,12 +54,13 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="1dp"
+        android:paddingTop="3dp"
         android:orientation="vertical"
         android:background="#F2F2F2" />
-    <LinearLayout
-       android:layout_width="fill_parent"
-        android:layout_height="1dp"
-        android:orientation="vertical"
-        android:background="#DBDBDB" />
+<!--     <LinearLayout -->
+<!--        android:layout_width="fill_parent" -->
+<!--         android:layout_height="1dp" -->
+<!--         android:orientation="vertical" -->
+<!--         android:background="#DBDBDB" /> -->
 
 </LinearLayout>
