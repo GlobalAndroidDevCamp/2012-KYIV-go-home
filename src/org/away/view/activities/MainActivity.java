@@ -85,12 +85,6 @@ public class MainActivity extends RoboActivity {
 
 			return;
 		}
-
-		// String text = startCoordinates == null ? "Bad location name"
-		// : startCoordinates.toString();
-		// Toast.makeText(getApplicationContext(), text, Toast.LENGTH_SHORT)
-		// .show();
-
 	}
 
 }
