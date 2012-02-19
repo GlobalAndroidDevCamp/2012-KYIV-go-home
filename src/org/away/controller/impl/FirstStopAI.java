@@ -1,13 +1,15 @@
 package org.away.controller.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import org.away.controller.SuperAI;
 import org.away.controller.GeoCodingService.GeoCoordinates;
+import org.away.controller.SuperAI;
+import org.away.dao.impl.LocalDao;
 import org.away.model.Itinary;
+import org.away.model.Station;
 
 public class FirstStopAI implements SuperAI {
+	
 	
 //	private List<> findNearStops(GeoCoordinates point) {
 //		return findNearStops(point, 500);
@@ -27,6 +29,13 @@ public class FirstStopAI implements SuperAI {
 
 	
     private List<Itinary> findDirects(GeoCoordinates start, GeoCoordinates end) {
+    	List<Station> stations = new LocalDao().fetchRoutes();
+
+    	Station approximateStart = new Station(start.getLattitude(), start.getLongtitude(), "", 0, null, 0, null);
+    	Station closestStart = StationUtils.findClosest(stations, approximateStart);
+    	
+    	Station approximateEnd = new Station(end.getLattitude(), end.getLongtitude(), "", 0, null, 0, null);
+    	Station closestEnd = StationUtils.findClosest(stations, approximateEnd);
     	
 //        int sLineI;
 //        int numberOfSLines;

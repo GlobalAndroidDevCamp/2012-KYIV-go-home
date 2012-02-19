@@ -53,7 +53,7 @@ public class GeoCodingService {
 		}
 		
 		public double getDistance(GeoCoordinates other) {
-			return Math.sqrt(Math.pow(longtitude-other.getLongtitude(), lattitude-other.getLattitude()));
+			return Math.sqrt(Math.pow(longtitude-other.longtitude,2) + Math.pow(lattitude-other.lattitude,2));
 		}
 
 		@Override

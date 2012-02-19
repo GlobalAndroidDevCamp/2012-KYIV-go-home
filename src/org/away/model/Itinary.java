@@ -7,9 +7,9 @@ public class Itinary {
 	private double price;
 	private int seconds;
 	private List<Integer> transportIds;
-	private List<Route> routes;
+	private List<Station> routes;
 
-	public Itinary(double price, int seconds, List<Integer> transportIds, List<Route> routes) {
+	public Itinary(double price, int seconds, List<Integer> transportIds, List<Station> routes) {
 		this.price = price;
 		this.seconds = seconds;
 		this.transportIds = transportIds;
@@ -34,7 +34,7 @@ public class Itinary {
 //	public void setTransportIds(int[] transportIds) {
 //		this.transportIds = transportIds;
 //	}
-	public List<Route> getRoutes() {
+	public List<Station> getRoutes() {
 		return routes;
 	}
 }
