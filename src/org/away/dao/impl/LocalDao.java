@@ -34,7 +34,7 @@ public class LocalDao implements Dao {
 		initData1();
 		initsData2();
 		initsData3();
-		//initsData4();
+		initsData4();
 	}
 
 	public void initData1(){
@@ -302,7 +302,7 @@ public class LocalDao implements Dao {
 		if (lines == null) {
 			lines = new ArrayList<Line>();
 			for(int i=0; i < lrase.length; i++){
-				Line tmp = new Line(lrase[i], ldots[i]);
+				Line tmp = new Line(lrase[i], lstops[i]);
 				lines.add(tmp);
 			}
 		}

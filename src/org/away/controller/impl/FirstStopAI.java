@@ -13,6 +13,8 @@ import org.away.model.Line;
 import org.away.model.Station;
 import org.away.model.Transport;
 
+import android.util.Log;
+
 public class FirstStopAI implements SuperAI {
 	
 	
@@ -49,7 +51,7 @@ public class FirstStopAI implements SuperAI {
     	int[] endIds = closestEnd.getSlines();
     	
     	int[] similar = StationUtils.findSimilar(startIds, endIds);
-    	
+    	Log.i("aWay", Arrays.toString(similar));
     	List<Itinary> itinaries = new ArrayList<Itinary>(); // id of the lines from the routes.
     	
     	for (int i = 0; i < similar.length; i++) {

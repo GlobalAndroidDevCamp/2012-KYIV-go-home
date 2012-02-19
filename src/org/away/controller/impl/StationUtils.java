@@ -31,6 +31,9 @@ public class StationUtils {
 			}
 		}
 		int[] result = new int[similar.size()];
+		for (int i = 0; i < similar.size(); i++) {
+			result[i] = similar.get(i);
+		}
 		return result;
 
 	}

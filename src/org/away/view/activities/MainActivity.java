@@ -73,8 +73,11 @@ public class MainActivity extends RoboActivity {
 			Toast.makeText(getApplicationContext(), e.getMessage(),
 					Toast.LENGTH_SHORT).show();
 
-			//return;
+			// return;
 		}
+
+		startCoordinates = new GeoCoordinates(24.0845, 49.823);
+		endCoordinates = new GeoCoordinates(23.99855, 49.80672);
 
 		startSearchResultsActivity(this, startCoordinates, endCoordinates);
 

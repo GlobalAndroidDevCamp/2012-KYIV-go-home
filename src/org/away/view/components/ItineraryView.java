@@ -3,6 +3,7 @@ package org.away.view.components;
 import org.away.R;
 import org.away.model.Itinary;
 import org.away.model.Station;
+import org.away.model.Transport;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -37,12 +38,12 @@ public class ItineraryView extends LinearLayout {
 
 	public void setItinerary(Itinary itinerary) {
 		StringBuilder routes = new StringBuilder();
-		for (Station station : itinerary.getRoutes()) {
-			routes.append(station.getRname()).append(" - ");
+		for (Transport transport : itinerary.getTransportIds()) {
+			routes.append(transport.getName()).append(" - ");
 		}
 		routes.delete(routes.length() - 3, routes.length());
-		numbersTextView.setText(setValueWithDefault(routes.toString(),
-				"Помилка в обчисленні маршруту"));
+		
+		numbersTextView.setText(routes.toString());
 
 		timeTextView.setText(setValueWithDefault(itinerary.getSeconds() / 60
 				+ " хв.", "Час: "));
