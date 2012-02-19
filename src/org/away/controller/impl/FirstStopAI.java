@@ -1,5 +1,6 @@
 package org.away.controller.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.away.controller.GeoCodingService.GeoCoordinates;
@@ -7,6 +8,7 @@ import org.away.controller.SuperAI;
 import org.away.dao.impl.LocalDao;
 import org.away.model.Itinary;
 import org.away.model.Station;
+import org.away.model.Transport;
 
 public class FirstStopAI implements SuperAI {
 	
@@ -36,6 +38,16 @@ public class FirstStopAI implements SuperAI {
     	
     	Station approximateEnd = new Station(end.getLattitude(), end.getLongtitude(), "", 0, null, 0, null);
     	Station closestEnd = StationUtils.findClosest(stations, approximateEnd);
+    	
+    	int[] startIds = closestStart.getSlines();
+    	int[] endIds = closestEnd.getSlines();
+    	
+    	int[] similar = StationUtils.findSimilar(startIds, endIds);
+    	
+    	List<Itinary> itinaries = new ArrayList<Itinary>();
+    	for (int i = 0; i < similar.length; i++) {
+			Itinary iti = new Itinary(2.0, 60*35, List<Transport>)null, (List<Station>)null);
+		}
     	
 //        int sLineI;
 //        int numberOfSLines;
@@ -80,8 +92,10 @@ public class FirstStopAI implements SuperAI {
 //            sLineFromResult--;
 //        };
 //        return ([sLinesArrayResult, startStopsArrayResult, fisishStopsArrayResult]);
-    	throw new UnsupportedOperationException("no cool ai now");
+    	throw (List<Station>) new UnsupportedOperationException("no cool ai now");
     }
+
+
 
 	@Override
 	public List<Itinary> bringMeHome(GeoCoordinates start, GeoCoordinates end) {
