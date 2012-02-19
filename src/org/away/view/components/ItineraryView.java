@@ -46,10 +46,10 @@ public class ItineraryView extends LinearLayout {
 		numbersTextView.setText(routes.toString());
 
 		timeTextView.setText(setValueWithDefault(itinerary.getSeconds() / 60
-				+ " хв.", "Час: "));
+				+ " С…РІ.", "Р§Р°СЃ: "));
 
 		priceTextView.setText(setValueWithDefault(itinerary.getPrice() / 100
-				+ " грн.", "Вартість: "));
+				+ " РіСЂРЅ.", "Р’Р°СЂС‚С–СЃС‚СЊ: "));
 
 	}
 

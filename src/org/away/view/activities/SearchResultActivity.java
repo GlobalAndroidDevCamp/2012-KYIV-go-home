@@ -55,7 +55,7 @@ public class SearchResultActivity extends RoboActivity {
 
 		if ((foundItineraries == null) || (foundItineraries.isEmpty())) {
 			Toast.makeText(this,
-					"Поядкуйте Садовому, що не зможете добратися до дому :)",
+					"РџРѕРґСЏРєСѓР№ РјРµСЂСѓ РЎР°РґРѕРІРѕРјСѓ, Р·Р° С‚Рµ С‰Рѕ РїС–С€РєРё Р№РґРµС€ РґРѕРґРѕРјСѓ! :)",
 					Toast.LENGTH_SHORT).show();
 		} else {
 			itineraries.clear();
